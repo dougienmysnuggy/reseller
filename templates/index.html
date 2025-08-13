@@ -1,20 +1,23 @@
 <!DOCTYPE html>
     <html>
     <head>
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
         <title>Time Clock</title>
     </head>
     <body>
-        <h1>Time Clock</h1>
-        <form action="/punch" method="post">
-            <button type="submit" name="action" value="Punch In">Punch In</button>
-            <button type="submit" name="action" value="Punch Out">Punch Out</button>
-        </form>
+        <div class = "time_clock">
+            <h1>Time Clock</h1>
+            <form action="/punch" method="post">
+                <button type="submit" name="action" value="Punch In">Punch In</button>
+                <button type="submit" name="action" value="Punch Out">Punch Out</button>
+            </form>
 
-        <h2>Time Entries</h2>
-        <ul>
-            {% for entry in entries %}
-            <li>{{ entry.action }}: {{ entry.timestamp }}</li>
-            {% endfor %}
-        </ul>
+            <h2>Time Entries</h2>
+            <ul>
+                {% for entry in entries %}
+                <li>{{ entry.action }}: {{ entry.timestamp }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </body>
     </html>
